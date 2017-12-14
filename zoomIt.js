@@ -27,7 +27,7 @@
     		if (slider.width) {
     			$('.image-overlay').width(slider.width);
     		}
-    		
+
     		$(document).on('click', imageList + ' img', function () {
     			mainImage.attr('src', $(this).attr('src'));
     		});
@@ -63,8 +63,8 @@
     		});
 
     		$('.image-overlay').prepend(
-    			'<img src="arrow-left.png" class="arrow prev-image">\
-    			<img src="arrow-right.png" class="arrow next-image">');
+    			'<span class="arrow prev-image"><</span>\
+    			<span class="arrow next-image">></span>');
 
     	}
 

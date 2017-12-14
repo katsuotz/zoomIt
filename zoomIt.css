@@ -1,3 +1,13 @@
+@font-face {
+    font-family: arrow;
+    src: url(arrow.ttf);
+}
+
+.arrow {
+	font-family: arrow;
+	color: #aaa;
+}
+
 .zoom-overlay {
 	position: fixed;
 	top: 0;
