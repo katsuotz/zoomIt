@@ -71,6 +71,8 @@
     	$(this).css('cursor', 'zoom-in');
     	$(this).click(function () {
 
+    		$('body').css('overflow-y', 'hidden');
+
     		var src = $(this).attr('src');
 
     		$('.zoomed-image').attr('src', src);
@@ -83,25 +85,26 @@
         			});
         		}
             }
-
-        	$('.zoomed-image').css({
-        		'cursor': 'zoom-out'
-        	});
+            setTimeout( function() {
+            	$('.zoomed-image').addClass('zoomed');
+            }, 0);
 
         	$('.zoom-overlay').css({
         		'opacity': '1',
         		'visibility': 'visible',
+        		'overflow-y': 'scroll'
         	});
     	});
 
 		$(document).on('click', '.zoomed-image', function () {
-        	$('.zoomed-image').css({
-        		'cursor': 'default'
-        	});
-
         	$('.zoom-overlay').css({
         		'opacity': '0',
+        		'overflow-y': 'hidden'
         	});
+
+    		$('body').css('overflow-y', 'scroll');			
+
+            $('.zoomed-image').removeClass('zoomed');
 
         	setTimeout( function() {
 	        	$('.zoom-overlay').css({

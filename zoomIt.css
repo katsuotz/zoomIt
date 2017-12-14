@@ -3,9 +3,27 @@
     src: url(arrow.ttf);
 }
 
+.container {
+	padding: 0 300px;
+	text-align: center;
+}
+
+p {
+	text-align: justify;
+	text-align-last: left;
+}
+
+.image-overlay {
+	margin: 0 auto;
+}
+
+.myimage {
+	margin-bottom: 1rem;
+}
+
 .arrow {
 	font-family: arrow;
-	color: #aaa;
+	color: #aaa	;
 }
 
 .zoom-overlay {
@@ -31,8 +49,15 @@
 }
 
 .zoom-overlay .zoom-image .zoomed-image {
+	transform: scale(0);
 	min-width: 50vw;
 	max-width: 90vw;
+	transition: all 1s;
+}
+
+.zoomed-image.zoomed {
+	cursor: zoom-out;
+	transform: scale(1) !important;
 }
 
 .zoom-image-list {
