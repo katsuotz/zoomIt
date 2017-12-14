@@ -22,10 +22,12 @@
     		var imageListWidth = [];
     		var imageListWidthTotal = 0;
 
+    		$(imageList).wrap('<div class="image-overlay"><div class="image-slider"></div></div>');
+
     		if (slider.width) {
     			$('.image-overlay').width(slider.width);
     		}
-
+    		
     		$(document).on('click', imageList + ' img', function () {
     			mainImage.attr('src', $(this).attr('src'));
     		});
@@ -40,7 +42,7 @@
 
     		$(imageList).css('width', imageListWidthTotal);
 
-    		$('.arrow.prev-image').click(function () {
+    		$(document).on('click', '.arrow.prev-image', function () {
     			if (currentPosition > 0) {
         			currentMargin += imageListWidth[currentPosition - 1];
         			currentPosition -= 1;
@@ -50,7 +52,7 @@
     			}
     		});
 
-    		$('.arrow.next-image').click(function () {
+    		$(document).on('click', '.arrow.next-image', function () {
     			if (currentPosition < imageListWidth.length - 1) {
         			currentMargin -= imageListWidth[currentPosition];
         			currentPosition += 1;
