@@ -29,7 +29,11 @@
     		}
 
     		$(document).on('click', imageList + ' img', function () {
-    			mainImage.attr('src', $(this).attr('src'));
+                var src = $(this).attr('src');
+                mainImage.fadeOut('fast', function () {
+        			mainImage.attr('src', src);
+                    mainImage.fadeIn('fast');
+                });
     		});
 
     		if ($(imageList + ' img').length) {
@@ -46,9 +50,7 @@
     			if (currentPosition > 0) {
         			currentMargin += imageListWidth[currentPosition - 1];
         			currentPosition -= 1;
-        			console.log(currentMargin);
         			$(imageList).css('margin-left', currentMargin + 'px');
-	        		console.log(currentPosition);
     			}
     		});
 
@@ -56,9 +58,7 @@
     			if (currentPosition < imageListWidth.length - 1) {
         			currentMargin -= imageListWidth[currentPosition];
         			currentPosition += 1;
-        			console.log(currentMargin);
         			$(imageList).css('margin-left', currentMargin + 'px');
-	        		console.log(currentPosition);
     			}
     		});
 
@@ -86,14 +86,15 @@
         		}
             }
             setTimeout( function() {
-            	$('.zoomed-image').addClass('zoomed');
+                $('.zoom-overlay').addClass('zoom-active');
             }, 0);
 
-        	$('.zoom-overlay').css({
-        		'opacity': '1',
-        		'visibility': 'visible',
-        		'overflow-y': 'scroll'
-        	});
+            $('.zoom-overlay').css({
+                'opacity': '1',
+                'visibility': 'visible',
+                'overflow-y': 'scroll'
+            });
+
     	});
 
 		$(document).on('click', '.zoomed-image', function () {
@@ -102,9 +103,11 @@
         		'overflow-y': 'hidden'
         	});
 
-    		$('body').css('overflow-y', 'scroll');			
+            $('body').css('overflow-y', 'scroll');
 
-            $('.zoomed-image').removeClass('zoomed');
+            setTimeout( function() {
+                $('.zoom-overlay').removeClass('zoom-active');
+            }, 0);		
 
         	setTimeout( function() {
 	        	$('.zoom-overlay').css({
@@ -115,8 +118,11 @@
 
 		$(document).on('click', '.zoom-image-content img', function () {
 			var src = $(this).attr('src');
-
-        	$('.zoomed-image').attr('src', src);
+            
+            $('.zoomed-image').fadeOut('fast', function () {
+                $('.zoomed-image').attr('src', src);
+                $('.zoomed-image').fadeIn('fast');
+            });
 
 		});
 
