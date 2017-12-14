@@ -60,6 +60,10 @@
     			}
     		});
 
+    		$('.image-overlay').prepend(
+    			'<img src="arrow-left.png" class="arrow prev-image">\
+    			<img src="arrow-right.png" class="arrow next-image">');
+
     	}
 
     	$(this).css('cursor', 'zoom-in');
