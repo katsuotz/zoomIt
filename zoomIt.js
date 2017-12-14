@@ -1,6 +1,17 @@
 (function ($) {
     $.fn.zoomIt = function (data) {
 
+    	$('body').append(
+			'<div class="zoom-overlay">\
+				<div class="zoom-image">\
+					<img src="#" class="zoomed-image">\
+				</div>\
+				<div class="zoom-image-list">\
+					<div class="zoom-image-content">\
+					</div>\
+				</div>\
+			</div>');
+
     	var mainImage = $(this);
 
     	var slider = data.slider;
@@ -99,7 +110,6 @@
         	$('.zoomed-image').attr('src', src);
 
 		});
-
 
         return this;
     };
