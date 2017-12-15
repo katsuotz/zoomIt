@@ -1,6 +1,6 @@
 @font-face {
     font-family: arrow;
-    src: url(arrow.ttf);
+    src: url(arrow2.ttf);
 }
 
 .container {
@@ -19,11 +19,6 @@ p {
 
 .myimage {
 	margin-bottom: 1rem;
-}
-
-.arrow {
-	font-family: arrow;
-	color: #aaa	;
 }
 
 .zoom-overlay {
@@ -56,7 +51,6 @@ p {
 }
 
 .zoom-active .zoomed-image {
-	cursor: zoom-out;
 	transform: scale(1) !important;
 }
 
@@ -84,12 +78,17 @@ p {
 .zoom-close-btn {
 	position: absolute;
 	right: 15px;
-	top: 10px;
+	top: -30px;
 	z-index: 2;
-	color: #FF4444;
 	text-decoration: none;
 	font-size: 2em;
-	font-family: sans-serif;
+	transition: .7s ease-in-out;
+	opacity: 0;
+}
+
+.zoom-active .zoom-close-btn {
+	top: 15px;
+	opacity: 1;
 }
 
 .zoom-close-btn img {
@@ -118,12 +117,23 @@ p {
 	top: 50%;
 	transform: translateY(-50%);
 	cursor: pointer;
+	font-family: arrow;
+	color: #666;
 }
 
 .image-overlay .arrow.prev-image {
 	left: 0;
 }
 
+.image-overlay .arrow.prev-image::before {
+	content: '<';
+}
+
+
 .image-overlay .arrow.next-image {
 	right: 0;
+}
+
+.image-overlay .arrow.next-image::before {
+	content: '>';
 }

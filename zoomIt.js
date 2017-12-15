@@ -4,6 +4,7 @@
     	$('body').append(
 			'<div class="zoom-overlay">\
 				<div class="zoom-image">\
+                    <a href="javascript:void(0)" class="zoom-close-btn"><img src="close_button.png"></a>\
 					<img src="#" class="zoomed-image">\
 				</div>\
 				<div class="zoom-image-list">\
@@ -91,8 +92,8 @@
             $(imageList).width(imageListWidthTotal + 1);
 
     		$('.image-overlay').prepend(
-    			'<span class="arrow prev-image"><</span>\
-    			<span class="arrow next-image">></span>');
+    			'<span class="arrow prev-image"></span>\
+    			<span class="arrow next-image"></span>');
             
             $(document).on('click', '.arrow.prev-image', function () {
                 if (currentPosition > 0) {
@@ -110,8 +111,6 @@
                     $(imageList).css('margin-left', currentMargin + 'px');
                 }
             });
-
-
     	}
 
     	$(this).css('cursor', 'zoom-in');
@@ -151,7 +150,7 @@
 
     	});
 
-		$(document).on('click', '.zoomed-image', function () {
+		$(document).on('click', '.zoom-close-btn', function () {
         	$('.zoom-overlay').css({
         		'opacity': '0',
         		'overflow-y': 'hidden'
