@@ -62,7 +62,7 @@ p {
 
 .zoom-image-list {
 	position: fixed;
-	bottom: -60px;
+	bottom: -20px;
 	width: 100%;
 	text-align: center;
 	height: 60px;
@@ -78,7 +78,6 @@ p {
 }
 
 .zoom-image-list img {
-	height: 50px;
 	cursor: pointer;
 }
 
@@ -100,9 +99,7 @@ p {
 /* Slider */
 
 .image-overlay {
-	width: 500px;
 	position: relative;
-	padding: 0 -30px;
 }
 
 .image-slider {
@@ -110,13 +107,8 @@ p {
 	margin: 0 30px;
 }
 
-.image-list {
-	transition: .3s;			
-}
-
-.image-list img {
+.image-list div {
 	float: left;
-	height: 100px;
 	cursor: pointer;
 }
 
